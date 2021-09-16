@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>lawyer site</h2>
+    <p>Questions and answers</p>
+    {% for question in questions %}
+        <a href="{% url 'question-detail' pk=question.id %}">{{ question }}</a>
+    {% endfor %}
+{% endblock %}
