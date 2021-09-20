@@ -1,8 +1,6 @@
-# from django.http import Http404
-# from django.shortcuts import render
-# from django.views import generic
-#
-# from .forms import QuestionForm
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+
 from .models import Question, Answer
 from .serializers import QuestionSerializer, AnswerSerializer
 from rest_framework import generics
@@ -13,9 +11,9 @@ class QuestionListAPIView(generics.ListCreateAPIView):
     serializer_class = QuestionSerializer
 
 
-class QuestionCreateAPIView(generics.RetrieveAPIView):
-    queryset = Question.objects.all()
+class QuestionDetailAPIView(generics.RetrieveAPIView):
     serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
 
 
 class AnswerApiView(generics.ListAPIView):
