@@ -12,7 +12,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class QuestionSerializer(serializers.ModelSerializer):
-    answers = AnswerSerializer()
+    answers = AnswerSerializer(read_only=True)
 
     class Meta:
         model = Question
