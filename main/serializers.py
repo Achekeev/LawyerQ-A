@@ -5,7 +5,6 @@ from .models import Question, Answer
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-    # question = serializers.ReadOnlyField(source='question.id')
 
     class Meta:
         model = Answer
@@ -13,7 +12,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class QuestionSerializer(serializers.ModelSerializer):
-    answers = serializers.PrimaryKeyRelatedField(read_only=True)
+    answers = AnswerSerializer()
 
     class Meta:
         model = Question
